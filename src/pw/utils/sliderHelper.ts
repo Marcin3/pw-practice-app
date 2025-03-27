@@ -1,7 +1,6 @@
-import {Locator} from "@playwright/test";
-import {BoundariesGetter} from "./types";
+import { Locator } from "@playwright/test";
 
-export async function getSliderClickPosition( slider: Locator, value: number, range: BoundariesGetter) {
+export async function getSliderClickPosition(slider: Locator, value: number, range: { min: number; max: number }) {
   await slider.waitFor();
   const boundingBox = await slider.boundingBox();
   if (!boundingBox) throw new Error('Slider SVG not found');
@@ -10,7 +9,7 @@ export async function getSliderClickPosition( slider: Locator, value: number, ra
   const angleMin = 131;
   const angleMax = 409;
   const angleRange = angleMax - angleMin;
-  const {min, max} = await range();
+  const { min, max } = range;
 
   const angle = angleMin + ((value - min) / (max - min)) * angleRange;
   const angleInRadians = (angle * Math.PI) / 180;

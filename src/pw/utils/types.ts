@@ -1,1 +1,6 @@
-export type BoundariesGetter = () => Promise<{ min: number; max: number }>;
+export interface SliderPageFields {
+  valueLocatorCss: string;
+  draggerIndex: number;
+  sliderIndex: number;
+  errorMessageField:string
+}
