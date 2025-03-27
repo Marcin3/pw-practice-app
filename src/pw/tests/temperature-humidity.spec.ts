@@ -1,6 +1,6 @@
 import {test} from '../fixtures/base';
 
-const testCases = [
+const temperatureTestCases = [
   // {value: 12},
   {value: 13},
   {value: 14},
@@ -22,9 +22,30 @@ const testCases = [
   // {value: 30},
 ];
 
-testCases.forEach(({value}) => {
+const humidityTestCases = [
+  // {value: 0},
+  // {value: 10},
+  // {value: 20},
+  // {value: 30},
+  // {value: 40},
+  {value: 50},
+  // {value: 60},
+  // {value: 70},
+  // {value: 80},
+  // {value: 90},
+  // {value: 100},
+];
+
+temperatureTestCases.forEach(({value}) => {
   test(`Should set and verify temperature to ${value} degrees`, async ({temperaturePage}) => {
     await temperaturePage.setTemperature(value)
     await temperaturePage.checkTemperature(value);
+  });
+})
+
+humidityTestCases.forEach(({value}) => {
+  test(`Should set and verify humidity to ${value} percent`, async ({humidityPage}) => {
+    await humidityPage.setHumidity(value)
+    await humidityPage.checkHumidity(value);
   });
 })
