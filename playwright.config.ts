@@ -13,6 +13,12 @@ import { defineConfig, devices } from '@playwright/test';
  */
 export default defineConfig({
   testDir: './src/pw/tests',
+  expect: {
+    toHaveScreenshot: {
+      pathTemplate: './src/pw/visual{/projectName}/{testFilePath}/{arg}{ext}',
+    },
+  },
+
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
