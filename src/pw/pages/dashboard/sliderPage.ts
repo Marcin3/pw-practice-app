@@ -26,6 +26,9 @@ export abstract class SliderPage {
     await expect(async () => {
       await expect(this.valueLocator).toContainText(value.toString());
     }).toPass();
+    await expect(this.dragger).toHaveScreenshot(`${value}-${this.errorMessageField}-dragger.png`, {
+      maxDiffPixelRatio: 0.05
+    });
   }
 
   protected async validateValue(value: number): Promise<void> {
