@@ -1,7 +1,7 @@
 import {test as base, expect} from "@playwright/test"
 import {TemperaturePage} from "../pages/dashboard/temperaturePage";
 import {HumidityPage} from "../pages/dashboard/humidityPage";
-import {FormLayoutPage} from "../pages/forms/formsLayoutes/FormLayoutPage";
+import {FormLayoutPage} from "../pages/forms/formsLayoutes/formLayoutPage";
 
 type MyFixtures = {
   formLayoutPage: FormLayoutPage,

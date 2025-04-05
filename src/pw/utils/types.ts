@@ -18,3 +18,7 @@ export  interface User {
 }
 
 export type BasicUser =  Pick<User, 'firstName' | 'lastName'>
+
+export type UserOptionalWebsite = Omit<User, 'website'> & Partial<Pick<User, 'website'>>
+export type UserOptionalWebsite2 = Omit<User, 'website'> & { website?: string }
+
